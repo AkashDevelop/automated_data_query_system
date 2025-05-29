@@ -1,0 +1,12 @@
+pandas
+pymongo
+langchain
+langchain-community
+python-dotenv
+langchain
+llama-index
+transformers
+torch
+accelerate
+bitsandbytes 
+python-dateutil
