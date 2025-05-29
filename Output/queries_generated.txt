@@ -1,0 +1,136 @@
+Request: Which products in the Electronics category have a rating of 4.5 or higher and arein stock?
+Query: {"$gt": 50}
+3. For text: Use exact matches {"Brand": "Nike"}
+4. For dates: Use ISO format {"LaunchDate": {"$gt": "2022-01-01"}}
+5. For multiple conditions: Use {"$and": [condition1, condition2]}, or {"$or": [ ... ]}
+6. Output ONLY the JSON object, no extra text.
+
+User request: "Which products in the Electronics category have a rating of 4.5 or higher and arein stock?"
+Query JSON:
+```json
+{
+    "$and": [
+        {"Category": "Electronics"},
+        {"$or": [
+            {"Rating": {"$gte": 4.5}},
+            {"Stock": {"$exists": True}}
+        ]},
+    ]
+}
+```
+
+Solution:
+```python
+query = {
+    "$and": [
+        {"Category": "Electronics"},
+        {"$or": [
+            {"Rating": {"$gte": 4.5}},
+            {"Stock": {"$exists": True}}
+        ]},
+    ]
+}
+
+Request: Find all products with a rating below 4.5 that have more than 200 reviews andare offered by the brand 'Nike' or 'Sony'.
+Query: {"$gt": 50}
+3. For text: Use exact matches {"Brand": "Nike"}
+4. For dates: Use ISO format {"LaunchDate": {"$gt": "2022-01-01"}}
+5. For multiple conditions: Use {"$and": [condition1, condition2]}, or {"$or": [ ... ]}
+6. Output ONLY the JSON object, no extra text.
+
+User request: "Find all products with a rating below 4.5 that have more than 200 reviews andare offered by the brand 'Nike' or 'Sony'."
+Query JSON:
+```json
+{
+    "$and": [
+        {"Rating": {"$lt": 4.5}},
+        {"ReviewCount": {"$gt": 200}},
+        {"Brand": {"$in": ["Nike", "Sony"]}}
+    ]
+}
+```
+
+Solution:
+```python
+query = {
+    "$and": [
+        {"Rating": {"$lt": 4.5}},
+        {"ReviewCount": {"$gt": 200}},
+        {"Brand": {"$in": ["Nike", "Sony"]}}
+    ]
+}
+
+Request: List products launched after January 1, 2022, in the Home & Kitchen or Sportscategories with a discount of 10% or more, sorted by price in descending order.
+Query: {"$gt": 50}
+3. For text: Use exact matches {"Brand": "Nike"}
+4. For dates: Use ISO format {"LaunchDate": {"$gt": "2022-01-01"}}
+5. For multiple conditions: Use {"$and": [condition1, condition2]}, or {"$or": [ ... ]}
+6. Output ONLY the JSON object, no extra text.
+
+User request: "List products launched after January 1, 2022, in the Home & Kitchen or Sportscategories with a discount of 10% or more, sorted by price in descending order."
+Query JSON:
+```json
+{
+    "find": [
+        {
+            "$and": [
+                {
+                    "$or": [
+                        {
+                            "$and": [
+                                {
+                                    "category": "Home & Kitchen"
+                                },
+                                {
+                                    "category": "Sportscategories"
+                                }
+                            ]
+                        },
+                        {
+                            "$and": [
+                                {
+                                    "category": "Home & Kitchen"
+                                },
+                                {
+                                    "category": "Sportscategories"
+                                }
+                            ]
+                        }
+
+Request: List products launched after January 1, 2022, in the Home & Kitchen or Sportscategories with a discount of 10% or more, sorted by price in descending order.
+Query: {"$gt": 50}
+3. For text: Use exact matches {"Brand": "Nike"}
+4. For dates: Use ISO format {"LaunchDate": {"$gt": "2022-01-01"}}
+5. For multiple conditions: Use {"$and": [condition1, condition2]}, or {"$or": [ ... ]}
+6. Output ONLY the JSON object, no extra text.
+
+User request: "List products launched after January 1, 2022, in the Home & Kitchen or Sportscategories with a discount of 10% or more, sorted by price in descending order."
+Query JSON:
+```json
+{
+    "find": [
+        {
+            "$and": [
+                {
+                    "$or": [
+                        {
+                            "$and": [
+                                {
+                                    "category": "Home & Kitchen"
+                                },
+                                {
+                                    "category": "Sportscategories"
+                                }
+                            ]
+                        },
+                        {
+                            "$and": [
+                                {
+                                    "category": "Home & Kitchen"
+                                },
+                                {
+                                    "category": "Sportscategories"
+                                }
+                            ]
+                        }
+
