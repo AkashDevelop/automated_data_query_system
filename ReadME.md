@@ -1,48 +1,55 @@
-Automated Data Query & Retrieval System
+# 🤖 Automated Data Query & Retrieval System
 
-What I Built
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![MongoDB](https://img.shields.io/badge/MongoDB-%23117A45.svg?logo=mongodb&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-%23734dd7.svg?logo=langchain&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-A Python tool that:
+A lightweight, offline-capable Python tool for **natural language database querying** using MongoDB and a local LLM.
 
-Loads product data from CSV into MongoDB.
+---
 
-Takes your natural-language question and asks a local LLM (Phi-2) to write a MongoDB query.
+## 🚀 What I Built
 
-Runs that query and either shows results in the console or saves them as a CSV.
+A Python-based assistant that:
 
-Challenges We Faced
+- 📦 Loads product data from CSV into MongoDB.
+- 🧠 Uses a local LLM (Phi-2) to generate MongoDB queries from your **natural-language questions**.
+- 🖥️ Executes the query and either:
+  - Displays results in the console
+  - Saves results as a CSV file
 
-Module Imports: Had to learn running python -m src.main from project root to fix import errors.
+---
 
-Big Model Downloads: Original Phi-2 shards (5GB) were too heavy; switched to offline, CPU-only loading and pointed at a cache.
+## 🧗 Challenges I Faced
 
-Prompt Braces: LangChain templates misinterpreted {}—we switched to f-strings with escaped braces.
+- 🧩 **Module Imports**  
+  Resolved import errors by running `python -m src.main` from the project root.
 
-bitsandbytes Errors: Backend didn’t support 4-bit on our machine, so we dropped quant flags.
+- 💾 **Model Size**  
+  Phi-2 shards (~5GB) were too heavy — switched to CPU-only loading from local cache.
 
-Quick Start
+- 🧵 **Prompt Formatting**  
+  LangChain misinterpreted `{}` in templates — replaced with `f-strings` and escaped braces.
 
-Install requirements: pip install -r requirements.txt
+- ⚙️ **bitsandbytes Errors**  
+  Our machine didn't support 4-bit quant — removed quantization flags for compatibility.
 
-Make sure MongoDB is running locally.
+---
 
-Run:
+## ⚡ Quick Start
 
-python -m src.main
+1. **Install dependencies:**
 
-Ask:
+   ```bash
+   pip install -r requirements.txt
 
-E.g. “Find products with rating below 4.5 and brand Nike.”
+2. **Start MongoDB locally**
+3. **Run the main module:**
+     ```bash
+   python -m src.main
+5. **Ask questions like:**
+       “Find products with rating below 4.5 and brand Nike.”
 
-Choose to show on screen or save to outputs/.
 
-Enjoy your offline, LLM-driven query assistant!
-
-Security: All LLM output is regex-validated as JSON before DB execution.
-
-Scalability: Could plug in multiple CSVs or a UI frontend.
-
-Model swap: To reduce disk footprint, swap to Smaller GGUF models (TinyLlama) by changing MODEL in llm_query_generator.py.
-
-LangChain Update: Replace deprecated HuggingFacePipeline with langchain-huggingface for future-proofing.
 
