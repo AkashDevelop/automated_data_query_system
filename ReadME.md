@@ -48,8 +48,13 @@ A Python-based assistant that:
 3. **Run the main module:**
      ```bash
    python -m src.main
-5. **Ask questions like:**
+4. **Ask questions like:**
        “Find products with rating below 4.5 and brand Nike.”
+
+5. **Choose output method:**
+     Save to outputs/ folder as .csv
+
+
 
 
 
